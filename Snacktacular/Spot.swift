@@ -15,7 +15,7 @@ class Spot {
     var address: String
     var coordinate: CLLocationCoordinate2D
     var averageRating: Double
-    var averageReviews: Int
+    var numberOfReviews: Int
     var postingUserID: String
     var documentID: String
     
@@ -27,21 +27,34 @@ class Spot {
     }
     
     var dictionary: [String: Any] {
-        return ["name": name, "address": address, "longitude": longitude, "latitude": latitute, "averageRating": averageRating, "averageReviews": averageReviews, "postingUserID": postingUserID, "documentID": documentID]
+        return ["name": name, "address": address, "longitude": longitude, "latitude": latitute, "averageRating": averageRating, "numberOfReviews": numberOfReviews, "postingUserID": postingUserID, "documentID": documentID]
     }
     
-    init(name: String, address: String, coordinate: CLLocationCoordinate2D, averageRating: Double, averageReviews: Int, postingUserID: String, documentID: String) {
+    init(name: String, address: String, coordinate: CLLocationCoordinate2D, averageRating: Double, numberOfReviews: Int, postingUserID: String, documentID: String) {
         self.name = name
         self.address = address
         self.coordinate = coordinate
         self.averageRating = averageRating
-        self.averageReviews = averageReviews
+        self.numberOfReviews = numberOfReviews
         self.postingUserID = postingUserID
         self.documentID = documentID
     }
     
     convenience init() {
-        self.init(name: "", address: "", coordinate: CLLocationCoordinate2D(), averageRating: 0.0, averageReviews: 0, postingUserID: "", documentID: "")
+        self.init(name: "", address: "", coordinate: CLLocationCoordinate2D(), averageRating: 0.0, numberOfReviews: 0, postingUserID: "", documentID: "")
+    }
+    
+    convenience init(dictionary: [String: Any]) {
+        let name = dictionary["name"] as! String? ?? ""
+        let address = dictionary["address"] as! String? ?? ""
+        let latitutde = dictionary["latitutde"] as! CLLocationDegrees? ?? 0.0
+        let longitude = dictionary["longitude"] as! CLLocationDegrees? ?? 0.0
+        let coordinate = CLLocationCoordinate2D(latitude: latitutde, longitude: longitude)
+        let averageRating = dictionary["averageRating"] as! Double? ?? 0.0
+        let numberOfReviews = dictionary["numberOfReviews"] as! Int? ?? 0
+        let postingUserID = dictionary["postingUserID"] as! String? ?? ""
+
+        self.init(name: name, address: address, coordinate: coordinate, averageRating: averageRating, numberOfReviews: numberOfReviews, postingUserID: postingUserID, documentID: "")
     }
     
     func saveData(completed: @escaping (Bool) -> ()) {
