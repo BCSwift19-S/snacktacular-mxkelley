@@ -691,7 +691,7 @@
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="addressLabel" destination="dEZ-t8-ATL" id="Dya-X6-G1r"/>
+                        <outlet property="addressLabel" destination="dPy-zG-L12" id="IS9-gR-g6Y"/>
                         <outlet property="buttonsBackgroundView" destination="FZm-FQ-wHO" id="Ggk-UM-zw6"/>
                         <outlet property="cancelBarButton" destination="eO6-Of-LJF" id="9Oh-mB-TWT"/>
                         <outlet property="deleteButton" destination="vmd-wF-Koa" id="Kvy-pd-ilK"/>

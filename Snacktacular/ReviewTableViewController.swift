@@ -11,7 +11,7 @@ import UIKit
 class ReviewTableViewController: UITableViewController {
 
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var addressLabel: UIView!
+    @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var postedByLabel: UILabel!
     @IBOutlet weak var reviewTitle: UITextField!
     @IBOutlet weak var reviewDateLabel: UILabel!
@@ -22,13 +22,17 @@ class ReviewTableViewController: UITableViewController {
     @IBOutlet weak var buttonsBackgroundView: UIView!
     @IBOutlet var starButtonCollection: [UIButton]!
     
+    var spot: Spot!
+    var review: Review!
+    
     var rating = 0 {
         didSet {
             for starButton in starButtonCollection {
                 let image = UIImage(named: starButton.tag < rating ? "star-filled" : "star-empty")
                 starButton.setImage(image, for: .normal)
             }
-            print(">>> New Rating \(rating)")
+            review.rating = rating
+//            print(">>> New Rating \(rating)")
         }
     }
     
@@ -39,6 +43,17 @@ class ReviewTableViewController: UITableViewController {
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
         tap.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tap)
+        
+        guard let spot = spot else {
+            print("*** ERROR: Did not have a valid spot in ReviewDetailViewController")
+            return
+        }
+        nameLabel.text = spot.name
+        addressLabel.text = spot.address
+        
+        if review == nil {
+            review = Review()
+        }
     }
     
     func leaveViewController() {
@@ -68,6 +83,15 @@ class ReviewTableViewController: UITableViewController {
     }
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
+        review.title = reviewTitle.text!
+        review.text = reviewView.text!
+        review.saveData(spot: spot) { (success) in
+            if success {
+                self.leaveViewController()
+            } else {
+                print("*** ERROR: Couldn't leave this view controller because data wasn't saved.")
+            }
+        }
     }
     
     
