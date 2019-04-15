@@ -18,6 +18,9 @@
 		3E8390EA206597F600512DEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E8390E8206597F600512DEA /* LaunchScreen.storyboard */; };
 		6B98F1E3F067F377DBC73197 /* Pods_Snacktacular.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B88DCF08EE5C2F202FB1E45 /* Pods_Snacktacular.framework */; };
 		A31EEE76226521050036F629 /* SnackUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31EEE75226521050036F629 /* SnackUser.swift */; };
+		A31EEE7822652D910036F629 /* SnackUsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31EEE7722652D910036F629 /* SnackUsersListViewController.swift */; };
+		A31EEE7A22652F520036F629 /* SnackUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31EEE7922652F520036F629 /* SnackUserTableViewCell.swift */; };
+		A31EEE7C2265303D0036F629 /* SnackUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31EEE7B2265303D0036F629 /* SnackUsers.swift */; };
 		A36743F222491EA600EA94D6 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36743F122491EA600EA94D6 /* Spot.swift */; };
 		A36743F422491F9E00EA94D6 /* Spots.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36743F322491F9E00EA94D6 /* Spots.swift */; };
 		A39C9ABD225E572300780B35 /* Double+roundTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39C9ABC225E572300780B35 /* Double+roundTo.swift */; };
@@ -46,6 +49,9 @@
 		8B88DCF08EE5C2F202FB1E45 /* Pods_Snacktacular.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Snacktacular.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95E3248A528B270B063AC62F /* Pods-Snacktacular.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snacktacular.release.xcconfig"; path = "Target Support Files/Pods-Snacktacular/Pods-Snacktacular.release.xcconfig"; sourceTree = "<group>"; };
 		A31EEE75226521050036F629 /* SnackUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackUser.swift; sourceTree = "<group>"; };
+		A31EEE7722652D910036F629 /* SnackUsersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackUsersListViewController.swift; sourceTree = "<group>"; };
+		A31EEE7922652F520036F629 /* SnackUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackUserTableViewCell.swift; sourceTree = "<group>"; };
+		A31EEE7B2265303D0036F629 /* SnackUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackUsers.swift; sourceTree = "<group>"; };
 		A36743F122491EA600EA94D6 /* Spot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
 		A36743F322491F9E00EA94D6 /* Spots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spots.swift; sourceTree = "<group>"; };
 		A39C9ABC225E572300780B35 /* Double+roundTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+roundTo.swift"; sourceTree = "<group>"; };
@@ -94,6 +100,7 @@
 				3E8390DF206597F600512DEA /* AppDelegate.swift */,
 				A36743F322491F9E00EA94D6 /* Spots.swift */,
 				A36743F122491EA600EA94D6 /* Spot.swift */,
+				A31EEE7B2265303D0036F629 /* SnackUsers.swift */,
 				A31EEE75226521050036F629 /* SnackUser.swift */,
 				A39C9AC6225EDBB200780B35 /* Reviews.swift */,
 				A39C9AC4225ED3B700780B35 /* Review.swift */,
@@ -105,6 +112,8 @@
 				3E0F960D2065AB6400AE450D /* SpotReviewsTableViewCell.swift */,
 				3E0F960F2065AC1A00AE450D /* SpotPhotosCollectionViewCell.swift */,
 				A39C9AC2225E653C00780B35 /* ReviewTableViewController.swift */,
+				A31EEE7722652D910036F629 /* SnackUsersListViewController.swift */,
+				A31EEE7922652F520036F629 /* SnackUserTableViewCell.swift */,
 				A39C9ABC225E572300780B35 /* Double+roundTo.swift */,
 				A39C9ABE225E5AC600780B35 /* UIView+addBorder.swift */,
 				3E8390E3206597F600512DEA /* Main.storyboard */,
@@ -329,15 +338,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3F35BB2225EEEB000240BBE /* Photo.swift in Sources */,
+				A31EEE7C2265303D0036F629 /* SnackUsers.swift in Sources */,
 				A39C9AC7225EDBB200780B35 /* Reviews.swift in Sources */,
 				3E8390E2206597F600512DEA /* SpotsListViewController.swift in Sources */,
 				A3F35BB4225EEF5E00240BBE /* Photos.swift in Sources */,
+				A31EEE7822652D910036F629 /* SnackUsersListViewController.swift in Sources */,
 				3E0F96102065AC1A00AE450D /* SpotPhotosCollectionViewCell.swift in Sources */,
 				3E0F960C2065A17500AE450D /* SpotDetailViewController.swift in Sources */,
 				3E0F960E2065AB6400AE450D /* SpotReviewsTableViewCell.swift in Sources */,
 				A39C9AC3225E653C00780B35 /* ReviewTableViewController.swift in Sources */,
 				A39C9AC5225ED3B700780B35 /* Review.swift in Sources */,
 				A31EEE76226521050036F629 /* SnackUser.swift in Sources */,
+				A31EEE7A22652F520036F629 /* SnackUserTableViewCell.swift in Sources */,
 				A39C9ABF225E5AC600780B35 /* UIView+addBorder.swift in Sources */,
 				3E0F960A20659D9000AE450D /* SpotsTableViewCell.swift in Sources */,
 				A36743F222491EA600EA94D6 /* Spot.swift in Sources */,

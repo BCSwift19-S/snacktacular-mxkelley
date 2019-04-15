@@ -13,14 +13,14 @@ class SnackUser {
     var email: String
     var displayName: String
     var photoURL: String
-    var userSince: Date
+    var userSince: Timestamp
     var documentID: String
     
     var dictionary: [String:Any] {
         return ["email":email, "displayName":displayName, "photoURL":photoURL, "userSince":userSince, "documentID":documentID]
     }
     
-    init(email: String, displayName: String, photoURL: String, userSince: Date, documentID: String) {
+    init(email: String, displayName: String, photoURL: String, userSince: Timestamp, documentID: String) {
         self.email = email
         self.displayName = displayName
         self.photoURL = photoURL
@@ -29,7 +29,15 @@ class SnackUser {
     }
     
     convenience init(user: User) {
-        self.init(email: user.email ?? "", displayName: user.displayName ?? "", photoURL: (user.photoURL != nil ? "\(user.photoURL!)" : ""), userSince: Date(), documentID: user.uid)
+        self.init(email: user.email ?? "", displayName: user.displayName ?? "", photoURL: (user.photoURL != nil ? "\(user.photoURL!)" : ""), userSince: Timestamp(), documentID: user.uid)
+    }
+    
+    convenience init(dictionary: [String : Any]) {
+        let email = dictionary["email"] as! String? ?? ""
+        let displayName = dictionary["displayName"] as! String? ?? ""
+        let photoURL = dictionary["photoURL"] as! String? ?? ""
+        let userSince = dictionary["userSince"] as! Timestamp? ?? Timestamp()
+        self.init(email: email, displayName: displayName, photoURL: photoURL, userSince: userSince, documentID: "")
     }
     
     func saveIfNewUser() {
